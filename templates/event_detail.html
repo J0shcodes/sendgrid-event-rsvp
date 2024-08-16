@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block content %}
+<div class="event_container">
+  <h1 class="heading">{{ event.name }}</h1>
+  <p>Date: {{ event.date }}</p>
+  <p>Description: {{ event.description }}</p>
+
+  <h2>Send Invitations</h2>
+  <form
+    method="POST"
+    action="{{ url_for('send_invitations', event_id=event.id) }}"
+  >
+    <label for="emails">Email Addresses (comma-separated):</label>
+    <div>
+      <input
+        type="text"
+        id="emails"
+        name="emails"
+        placeholder="emailexample1@example.com,emailexample2@example.com"
+        required
+      />
+    </div>
+    <input type="submit" value="Send Invitations" />
+  </form>
+
+  <h2>RSVPs</h2>
+  <ul>
+    {% for rsvp in rsvps %}
+    <li>{{ rsvp.email }} - {{ rsvp.status }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

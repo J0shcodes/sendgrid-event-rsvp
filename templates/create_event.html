@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="heading">Create Event</h1>
+<div class="form_container">
+  <form method="POST">
+    <div class="form_elements">
+      <label for="name">Event Name:</label>
+      <div class="input_container">
+        <input type="text" id="name" name="name" required />
+      </div>
+    </div>
+
+    <div class="form_elements">
+      <label for="date">Date:</label>
+      <div class="input_container">
+        <input type="date" id="date" name="date" required />
+      </div>
+    </div>
+
+    <div class="form_elements">
+      <label for="description">Description:</label>
+      <div class="input_container">
+        <textarea id="description" name="description" placeholder="Leave blank for an AI-generated description"></textarea>
+      </div>
+    </div>
+    <input type="submit" value="Create Event" />
+  </form>
+</div>
+{% endblock %}
